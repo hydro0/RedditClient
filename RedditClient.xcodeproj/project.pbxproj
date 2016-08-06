@@ -100,7 +100,7 @@
 				6F66740E1D54AFD300066F93 /* RCLinksListViewController.h */,
 				6F66740F1D54AFD300066F93 /* RCLinksListViewController.m */,
 			);
-			name = controller;
+			path = controller;
 			sourceTree = "<group>";
 		};
 		6F1DAFC51D55355800BF37CD /* view */ = {
@@ -110,7 +110,7 @@
 				6F1DAFC11D55353F00BF37CD /* RCLinksTableViewCell.h */,
 				6F1DAFC21D55353F00BF37CD /* RCLinksTableViewCell.m */,
 			);
-			name = view;
+			path = view;
 			sourceTree = "<group>";
 		};
 		6F1DAFC61D55424600BF37CD /* model */ = {
@@ -119,17 +119,17 @@
 				6F1DAFC71D55426100BF37CD /* RCLinksModel.h */,
 				6F1DAFC81D55426100BF37CD /* RCLinksModel.m */,
 			);
-			name = model;
+			path = model;
 			sourceTree = "<group>";
 		};
 		6F6673FC1D54AFD300066F93 = {
 			isa = PBXGroup;
 			children = (
+				229CE6737CE4AE61ECE165BE /* Frameworks */,
+				2776CCAEA8522E6C2CECA035 /* Pods */,
+				6F6674061D54AFD300066F93 /* Products */,
 				6F6674071D54AFD300066F93 /* RedditClient */,
 				6F6674211D54AFD400066F93 /* RedditClientTests */,
-				6F6674061D54AFD300066F93 /* Products */,
-				2776CCAEA8522E6C2CECA035 /* Pods */,
-				229CE6737CE4AE61ECE165BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,14 +145,14 @@
 		6F6674071D54AFD300066F93 /* RedditClient */ = {
 			isa = PBXGroup;
 			children = (
+				6F6674081D54AFD300066F93 /* Supporting Files */,
+				6F1DAFC41D55354E00BF37CD /* controller */,
+				6F1DAFC61D55424600BF37CD /* model */,
+				6F1DAFC51D55355800BF37CD /* view */,
 				6F66740B1D54AFD300066F93 /* AppDelegate.h */,
 				6F66740C1D54AFD300066F93 /* AppDelegate.m */,
-				6F1DAFC61D55424600BF37CD /* model */,
-				6F1DAFC41D55354E00BF37CD /* controller */,
-				6F1DAFC51D55355800BF37CD /* view */,
 				6F6674141D54AFD400066F93 /* Assets.xcassets */,
 				6F6674191D54AFD400066F93 /* Info.plist */,
-				6F6674081D54AFD300066F93 /* Supporting Files */,
 			);
 			path = RedditClient;
 			sourceTree = "<group>";
@@ -162,14 +162,14 @@
 			children = (
 				6F6674091D54AFD300066F93 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		6F6674211D54AFD400066F93 /* RedditClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				6F6674221D54AFD400066F93 /* RedditClientTests.m */,
 				6F6674241D54AFD400066F93 /* Info.plist */,
+				6F6674221D54AFD400066F93 /* RedditClientTests.m */,
 			);
 			path = RedditClientTests;
 			sourceTree = "<group>";
@@ -406,6 +406,7 @@
 				6F6674121D54AFD300066F93 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
