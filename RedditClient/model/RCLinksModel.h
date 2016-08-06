@@ -23,7 +23,10 @@
 
 @protocol RCLinksModelDelegate <NSObject>
 
-- (void)linksModel:(RCLinksModel *)model didLinksUpdate:(NSArray<RSLink *> *)links onTop:(BOOL)onTop;
+- (void)linksModel:(RCLinksModel *)model didLinksUpdate:(NSArray<RSLink *> *)links;
+- (void)linksModel:(RCLinksModel *)model didLinksAppended:(NSArray<RSLink *> *)links;
+- (void)linksModel:(RCLinksModel *)model didLinksPrepended:(NSArray<RSLink *> *)links;
+
 - (void)linksModel:(RCLinksModel *)model didFailedToLoadWithError:(NSError *)error;
 
 @end

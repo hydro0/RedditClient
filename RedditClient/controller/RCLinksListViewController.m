@@ -113,24 +113,38 @@
     [self.linksTableView reloadData];
 }
 
-#pragma mark RCLinksModelDelegate implementation
-
-- (void)linksModel:(RCLinksModel *)model didLinksUpdate:(NSArray<RSLink *> *)links onTop:(BOOL)onTop {
-    if (onTop) {
-        [self.linksTableView.pullToRefreshView stopAnimating];
-    } else {
-        [self.linksTableView.infiniteScrollingView stopAnimating];
-    }
-    [self hideLoading];
-    
-    NSIndexPath *startAtPosition = onTop ? [NSIndexPath indexPathForRow:0 inSection:0] : [self.linksTableView.indexPathsForVisibleRows.lastObject copy];
-    self.links = [links copy];
-    [self.linksTableView reloadData];
+- (void)scrollTableViewToPosition:(NSIndexPath *)position {
     if (self.links.count) {
-        [self.linksTableView scrollToRowAtIndexPath:startAtPosition
+        [self.linksTableView scrollToRowAtIndexPath:position
                                    atScrollPosition:UITableViewScrollPositionBottom
                                            animated:NO];
     }
+}
+
+- (void)setLinks:(NSArray<RSLink *> *)links {
+    _links = links;
+    [self.linksTableView reloadData];
+}
+
+#pragma mark RCLinksModelDelegate implementation
+
+- (void)linksModel:(RCLinksModel *)model didLinksUpdate:(NSArray<RSLink *> *)links {
+    [self hideLoading];
+    self.links = links;
+    [self scrollTableViewToPosition:[NSIndexPath indexPathForRow:0 inSection:0]];
+}
+
+- (void)linksModel:(RCLinksModel *)model didLinksAppended:(NSArray<RSLink *> *)links {
+    [self.linksTableView.infiniteScrollingView stopAnimating];
+    NSIndexPath *currentPosition = [self.linksTableView.indexPathsForVisibleRows.lastObject copy];
+    self.links = [self.links arrayByAddingObjectsFromArray:links];
+    [self scrollTableViewToPosition:currentPosition];
+}
+
+- (void)linksModel:(RCLinksModel *)model didLinksPrepended:(NSArray<RSLink *> *)links {
+    [self.linksTableView.pullToRefreshView stopAnimating];
+    self.links = [links arrayByAddingObjectsFromArray:self.links];
+    [self scrollTableViewToPosition:[NSIndexPath indexPathForRow:0 inSection:0]];
 }
 
 - (void)linksModel:(RCLinksModel *)model didFailedToLoadWithError:(NSError *)error {
