@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  RCLinksTableViewCell.h
 //  RedditClient
 //
 //  Created by Orest Savchak on 8/5/16.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RSLink.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface RCLinksTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) UIWindow *window;
+- (void)updateWithDataObject:(RSLink *)link;
 
 @end
-
