@@ -65,8 +65,8 @@ typedef void(^RCFailureCallback)();
                                                          }
                                                          if (!error) {
                                                              callback(links);
+                                                             return;
                                                          }
-                                                         
                                                          if (failure) {
                                                              failure();
                                                          }
